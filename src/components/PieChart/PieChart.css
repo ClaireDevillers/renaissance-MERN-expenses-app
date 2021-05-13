@@ -1,0 +1,35 @@
+.Pie {
+    border-radius: 1em;
+    background-color: white;
+    color: black;
+    margin: 1em;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.PieChart-top {
+    height: 30vh;
+    width: auto;
+}
+
+.PieChart-buttons {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 1em 1em;
+}
+
+.Pie h1 {
+    padding-left: 0.4em;
+    padding-top: 0.2em;
+    color: red;
+}
+
+.Pie canvas {
+    width: auto;
+    height: 5vh;
+    border: 3px solid chartreuse;
+}

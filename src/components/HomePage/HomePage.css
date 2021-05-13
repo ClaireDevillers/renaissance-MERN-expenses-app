@@ -1,0 +1,40 @@
+.HomePage {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: white;
+}
+
+.HomePage-bottom {
+    border-radius: 1em;
+    background-color: white;
+    color: black;
+    margin: 1em;
+    height: 32vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.HomePage-bottom .btn {
+    border-radius: 0.5em;
+    padding: 0.5em 0em;
+    margin: 0em 1.6em;
+    font-size: 1.3em ;
+}
+
+.HomePage-total {
+    padding-bottom: 0.5em;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.HomePage-amount {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.HomePage h1 {
+    padding-left: 0.4em;
+    color: red;
+}

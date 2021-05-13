@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Nav from "./components/Nav/Nav.jsx"
+import HomePage from "./components/HomePage/HomePage.jsx"
+import AddPage from "./components/AddPage/AddPage.jsx"
+import ListPage from "./components/ListPage/ListePage.jsx"
+import CategoriesPage from "./components/CategoriesPage/CategoriesPage.jsx"
+
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 function App() {
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav />
+
+      <Switch>
+        <Route path='/home' render={(props) => (
+          <HomePage {...props} />
+        )} />
+        <Route path='/add' render={(props) => (
+          <AddPage {...props} />
+        )} />
+        <Route path='/list' render={(props) => (
+          <ListPage {...props} />
+        )} />
+        <Route path='/categories' render={(props) => (
+          <CategoriesPage {...props} />
+        )} />
+        <Redirect to="/home" />
+      </Switch>
     </div>
+
   );
 }
 
