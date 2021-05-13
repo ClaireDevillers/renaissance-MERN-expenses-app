@@ -16,11 +16,10 @@
     justify-content: space-evenly;
 }
 
-.HomePage-bottom .btn {
+.HomePage-bottom a {
     border-radius: 0.5em;
-    padding: 0.5em 0em;
-    margin: 0em 1.6em;
     font-size: 1.3em ;
+    text-align: center;
 }
 
 .HomePage-total {
@@ -36,5 +35,32 @@
 
 .HomePage h1 {
     padding-left: 0.4em;
+    color: red;
+}
+
+.Pie {
+    border-radius: 1em;
+    background-color: white;
+    color: black;
+    margin: 1em;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+
+.PieChart-buttons {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 1em 1em;
+}
+
+.Pie h1 {
+    padding-left: 0.4em;
+    padding-top: 0.2em;
     color: red;
 }

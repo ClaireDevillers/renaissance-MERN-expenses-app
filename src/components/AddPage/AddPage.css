@@ -1,0 +1,60 @@
+.AddPage {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: white;
+}
+
+.AddPage-layout {
+    background-color: white;
+    color: black;
+    margin: 1em;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1em;
+}
+
+.AddPage h1 {
+    padding: 0.4em;
+    color: red;
+}
+
+.AddPage-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.AddPage h4 {
+    margin: 0.5em;
+}
+
+.AddPage input {
+    margin: 0.5em;
+}
+
+.AddPage-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.AddPage-btn-cat {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.AddPage-form .fa {
+    color: red;
+    background-color: black;
+    border-radius: 0.5em;
+    font-size: 2.5em;
+    padding: 0.5em;
+    margin: 0.1em;
+
+}
+
+
+

@@ -1,11 +1,15 @@
 import './Nav.css'
+import { Link } from 'react-router-dom'
+
 
 function Nav(props) {
     return (
         <div >
             <header className="mobile-header">
                 <span>
-                    <img src="logoRenaissance.webp" alt="logo" />
+                    <Link to="/home">
+                        <img src="logoRenaissance.webp" alt="logo" />
+                    </Link>
                 </span>
                 <nav>
                     <div data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent"

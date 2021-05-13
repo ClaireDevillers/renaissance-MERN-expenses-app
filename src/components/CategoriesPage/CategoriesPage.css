@@ -1,0 +1,33 @@
+.CatPage {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: white;
+}
+
+.CatPage-layout {
+    background-color: white;
+    color: black;
+    margin: 1em;
+    height: 88vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1em;
+}
+
+.CatPage h1 {
+    padding: 0.4em;
+    color: red;
+}
+
+.CatPage-layout table {
+    margin: 1em;
+}
+
+.CatPage-thead {
+    border-bottom: 3px solid red ;    
+}
+
+.CatPage-layout tr {
+    border-bottom: 1px solid lightgrey;
+}

@@ -1,25 +1,22 @@
 import './PieChart.css'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { PieChart as Pie } from 'react-minimal-pie-chart'
 
 function PieChart(props) {
 
     return (
-        <div className="Pie" >
-            <h1>SUMMARY</h1>
+        <div>
             <div className="PieChart-top">
                 <Pie data={[
-                    {title: "One", value: 10, color: "#E38627"},
-                    {title: "Two", value: 15, color: "#C13C37"},
-                    {title: "Three", value: 20, color: "#6A2135"}
-                ]} animate label={()=>{return "label"}}
+                    { title: "food", value: 10, color: "#EC7063" },
+                    { title: "home", value: 15, color: "#85C1E9 " },
+                    { title: "restaurant", value: 20, color: "#F7DC6F" },
+                    { title: "pet", value: 20, color: "#58D68D" },
+                 
+                ]} animate label={() => { return "label" }}
                 />
             </div>
-            <div className="PieChart-buttons">
-                <button className="btn btn-warning">View List</button>
-                <button className="btn btn-warning">Categories</button>
-            </div>
-
         </div>
     );
 }

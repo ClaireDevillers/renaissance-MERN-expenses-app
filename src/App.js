@@ -3,7 +3,7 @@ import './App.css';
 import Nav from "./components/Nav/Nav.jsx"
 import HomePage from "./components/HomePage/HomePage.jsx"
 import AddPage from "./components/AddPage/AddPage.jsx"
-import ListPage from "./components/ListPage/ListePage.jsx"
+import ListPage from "./components/ListPage/ListPage.jsx"
 import CategoriesPage from "./components/CategoriesPage/CategoriesPage.jsx"
 
 import { Route, Switch, Redirect } from 'react-router-dom';
