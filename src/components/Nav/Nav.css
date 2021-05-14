@@ -12,8 +12,6 @@ header img {
     height: auto;
     margin: 0.4em;
     border-radius: 1em;
-    
-
 }
 
 .lg-header {
@@ -27,14 +25,24 @@ header img {
 }
 
 .drop-down {
+    border: 1px solid white;
     font-size: 1em;
     color: black;
-    background-color: white;
+    background-color: red;
     position: fixed;
-    top:5.2em;
-    right: 1.3em;
-    padding: 1em 1.5em 1em 0.8em;
-    border-radius: 00.5em;
+    text-align: left;
+    top:3.6em;
+    right: 0em;
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
 }
 
+.drop-down a {
+    text-decoration: none;
+    color: black;
+}
+
+.drop-down a:hover {
+    color: white;
+}

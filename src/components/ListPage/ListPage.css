@@ -34,4 +34,5 @@
 
 .ListPage-layout .fa-remove {
     color: crimson;
+    cursor: pointer;
 }

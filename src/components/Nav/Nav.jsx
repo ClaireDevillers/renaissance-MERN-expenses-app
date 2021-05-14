@@ -20,8 +20,10 @@ function Nav(props) {
             </header>
             <aside className="mobile-header collapse" id="navbarToggleExternalContent">
                 <div className="drop-down">
-                    <h4>Profile</h4>
-                    <h4>Logout</h4>
+                    <h4 className="btn"><Link to='/home'>Home</Link></h4>
+                    <h4 className="btn"><Link to='/add'>Add</Link></h4>
+                    <h4 className="btn"><Link to='/list'>List View</Link></h4>
+                    <h4 className="btn"><Link to='/categories'>Categories</Link></h4>
                 </div>
             </aside>
         </div>

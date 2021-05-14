@@ -5,7 +5,6 @@ function CategoriesPage(props) {
 
   let catValues = props.calculateCategoryValues(props.list)
   let catData = addLabelsPercentsTotals(catValues, props.categories)
-  console.log(catData)
 
   return (
     <div className="CatPage">
@@ -14,7 +13,6 @@ function CategoriesPage(props) {
         <PieChart list={props.list} calculateCategoryValues={props.calculateCategoryValues} />
         <table>
           <thead className="CatPage-thead">
-            {}
             <tr>
               <th>Label</th>
               <th>Category</th>
