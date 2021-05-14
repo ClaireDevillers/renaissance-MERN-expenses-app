@@ -7,14 +7,15 @@ class AddPage extends React.Component {
     amount: "",
     date: "",
     error: "",
-    selectedCat: ""
+    selectedCat: "Home"
   }
 
   changeInput = (event) => {
     this.setState({ [event.target.name]: event.target.value })
   }
 
-  send = async () => {
+  send = async (event) => {
+    event.preventDefault();
     try {
       let fetchResponse = await fetch("/api/expenses/add",
         {
@@ -30,7 +31,8 @@ class AddPage extends React.Component {
 
       if (!fetchResponse.ok) throw new Error("Fetch failed - Bad request")
 
-      let response = await fetchResponse.json()
+      let newList = await fetchResponse.json()
+      this.props.setList(newList)
       this.props.history.push('/list')
 
     } catch (err) {
@@ -43,22 +45,23 @@ class AddPage extends React.Component {
       <div className="AddPage">
         <section className="AddPage-layout">
           <h1>Add Expense</h1>
+          <form onSubmit={this.send}>
           <div className="AddPage-form">
 
             <h4>Description</h4>
-            <input placeholder="Buying some CD's" onChange={this.changeInput} name="description" value={this.state.description} />
+            <input required placeholder="Buying some CD's" onChange={this.changeInput} name="description" value={this.state.description} />
 
             <h4>Amount</h4>
-            <input placeholder="42.42" type="number" onChange={this.changeInput} name="amount" value={this.state.amount} />
+            <input required placeholder="42.42" type="number" onChange={this.changeInput} name="amount" value={this.state.amount} />
 
             <h4>Date</h4>
-            <input type="date" onChange={this.changeInput} name="date" value={this.state.date} />
+            <input required type="date" onChange={this.changeInput} name="date" value={this.state.date} />
 
             <h4>Choose category</h4>
 
             <div className="AddPage-btn-cat">
-              {this.props.categories.map(cat => {
-                const active = (cat.name == this.state.selectedCat) ? "active" : ""
+              {this.props.categories && this.props.categories.map(cat => {
+                const active = (cat.name === this.state.selectedCat) ? "active" : ""
                 return <i 
                 className={"fa " + cat.faIcon + " " + active}
                 key={cat._id} 
@@ -70,8 +73,9 @@ class AddPage extends React.Component {
           </div>
 
           <div className="AddPage-btn">
-            <button className="btn btn-warning" onClick={() => { this.send() }}>Add expense</button>
+            <button className="btn btn-warning">Add expense</button>
           </div>
+          </form>
           <div style={{color:"red"}}>
             {this.state.error}
           </div>

@@ -5,11 +5,19 @@ import PieChart from '../PieChart/PieChart.jsx';
 
 
 function HomePage(props) {
+
+  let sum = 0
+  for (let item of props.list) {
+    sum += item.amount
+  }
+  sum = sum.toFixed(2)
+
+
   return (
     <div className="HomePage " >
       <section className="Pie">
       <h1>SUMMARY</h1>
-        <PieChart />
+        <PieChart list={props.list} calculateCategoryValues={props.calculateCategoryValues} />
         <div className="PieChart-buttons">
             <Link to="/list">
                 <button className="btn btn-warning">View List</button>
@@ -23,7 +31,7 @@ function HomePage(props) {
         <h1>EXPENSES</h1>
         <div>
           <div className="HomePage-total">Total transactions</div>
-          <div className="HomePage-amount">$ 12.04</div>
+          <div className="HomePage-amount">$ {sum}</div>
         </div>
         <Link to="/add">
           <button className="btn btn-warning">Add Expense</button>

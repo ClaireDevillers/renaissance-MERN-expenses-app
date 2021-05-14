@@ -31,3 +31,7 @@
 .ListPage-layout tr {
     border-bottom: 1px solid lightgrey;
 }
+
+.ListPage-layout .fa-remove {
+    color: crimson;
+}
