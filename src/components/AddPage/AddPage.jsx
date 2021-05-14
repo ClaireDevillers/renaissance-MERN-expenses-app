@@ -14,7 +14,7 @@ class AddPage extends React.Component {
   }
 
   send = async () => {
-    let fetchResponse = await fetch("https://jsonplaceholder.typicode.com/posts",
+    let fetchResponse = await fetch("/api/expenses/add",
     {
       method: "POST",
       headers: {"Content-Type": "application/json"},
