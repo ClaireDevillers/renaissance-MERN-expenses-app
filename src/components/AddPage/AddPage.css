@@ -43,7 +43,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
 }
 
 .AddPage-form .fa {
@@ -53,6 +52,11 @@
     font-size: 2.5em;
     padding: 0.5em;
     margin: 0.1em;
+}
+
+.AddPage-btn-cat > .active {
+    color: white;
+    background-color: red;
 }
 
 

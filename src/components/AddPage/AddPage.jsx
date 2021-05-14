@@ -2,34 +2,42 @@ import React from "react";
 import './AddPage.css';
 
 class AddPage extends React.Component {
-  state= {
-    description:"",
-    amount:"",
-    date:"",
-    category:"",
+  state = {
+    description: "",
+    amount: "",
+    date: "",
+    error: "",
+    selectedCat: ""
   }
 
   changeInput = (event) => {
-    this.setState({[event.target.name]:event.target.value})
+    this.setState({ [event.target.name]: event.target.value })
   }
 
   send = async () => {
-    let fetchResponse = await fetch("/api/expenses/add",
-    {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-        description: this.state.description,
-        amount: this.state.amount,
-        date: this.state.date,
-        category: this.state.category,
-      })
-    })
-    let response = await fetchResponse.json()
-    console.log(response)
-    this.props.history.push('/list')
+    try {
+      let fetchResponse = await fetch("/api/expenses/add",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            description: this.state.description,
+            amount: this.state.amount,
+            date: this.state.date,
+            category: this.state.selectedCat,
+          })
+        })
+
+      if (!fetchResponse.ok) throw new Error("Fetch failed - Bad request")
+
+      let response = await fetchResponse.json()
+      this.props.history.push('/list')
+
+    } catch (err) {
+      this.setState({ error: "Something went wrong - Try again!" })
+    }
   }
-  
+
   render() {
     return (
       <div className="AddPage">
@@ -38,10 +46,10 @@ class AddPage extends React.Component {
           <div className="AddPage-form">
 
             <h4>Description</h4>
-            <input onChange={this.changeInput} name="description" value={this.state.description} />
+            <input placeholder="Buying some CD's" onChange={this.changeInput} name="description" value={this.state.description} />
 
             <h4>Amount</h4>
-            <input type="number" onChange={this.changeInput} name="amount" value={this.state.amount} />
+            <input placeholder="42.42" type="number" onChange={this.changeInput} name="amount" value={this.state.amount} />
 
             <h4>Date</h4>
             <input type="date" onChange={this.changeInput} name="date" value={this.state.date} />
@@ -49,24 +57,23 @@ class AddPage extends React.Component {
             <h4>Choose category</h4>
 
             <div className="AddPage-btn-cat">
-              <i className="fa fa-cart-arrow-down" />
-              <i className="fa fa-home" />
-              <i className="fa fa-coffee" />
-              <i className="fa fa-cutlery" />
-              <i className="fa fa-paw" />
-              <i className="fa fa-heartbeat" />
-              <i className="fa fa-book" />
-              <i className="fa fa-phone" />
-              <i className="fa fa-plane" />
-              <i className="fa fa-music" />
-              <i className="fa fa-gamepad" />
-              <i className="	fa fa-wrench" />
+              {this.props.categories.map(cat => {
+                const active = (cat.name == this.state.selectedCat) ? "active" : ""
+                return <i 
+                className={"fa " + cat.faIcon + " " + active}
+                key={cat._id} 
+                onClick={()=>this.setState({selectedCat: cat.name})}
+                />
+              })}
             </div>
 
           </div>
 
           <div className="AddPage-btn">
-            <button className="btn btn-warning" onClick={() => {this.send()}}>Add expense</button>
+            <button className="btn btn-warning" onClick={() => { this.send() }}>Add expense</button>
+          </div>
+          <div style={{color:"red"}}>
+            {this.state.error}
           </div>
 
         </section>
