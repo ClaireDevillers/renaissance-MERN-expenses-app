@@ -4,7 +4,7 @@ This was a MERN stack project created to demonstrate knowledge of nodeJS, databa
 
 ## Live demo
 
-https://renaissance-expense.herokuapp.com/home
+https://renaissance-expense.herokuapp.com
 
 ## End user notes
 
